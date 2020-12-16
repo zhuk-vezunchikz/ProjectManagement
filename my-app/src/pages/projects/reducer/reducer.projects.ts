@@ -10,6 +10,11 @@ export interface ProjectState {
 
 export const reducer = combineReducers<ProjectState>({
     projects: createReducer<Project[], Actions>(initialState.projects)
+        .handleAction(projectActions.remove, ((state, action) => {
+            const arr = state.concat();
+           const newArr = arr.filter(item => item.id !== action.payload)
+            return [...newArr ]
+        }))
         .handleAction(projectActions.add, (state, action) => {
             return [...state, action.payload]
         })

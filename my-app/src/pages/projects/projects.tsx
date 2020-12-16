@@ -28,6 +28,7 @@ export const ProjectsPage: FC<Props> = () => {
                 }}>Редактировать
                 </button>
                 <button onClick={() => {
+                    dispatch(projectActions.remove(item.id))
                 }}>Удалить
                 </button>
             </div>)}
